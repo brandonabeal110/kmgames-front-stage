@@ -1,0 +1,58 @@
+@import '~@style/mixins/index.scss';
+
+:local(.wrapper){
+  position: absolute;
+  bottom: 0;
+  padding-bottom: calc(env(safe-area-bottom) + 3px);
+  z-index: 5;
+  height: 59px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  
+  @include useTheme {
+    background: getVar('footerBg');
+    border-top: 0.5px solid getVar('footerBorderColor');
+  }
+  .icon-wrap{
+    width: 20px;
+    height: 20px;
+    background: url(./i/icon-5.svg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-size: contain;
+    img{
+      width: 10.8px;
+      height: 11.4px;
+    }
+    .rotate-infinite{
+      animation: rotate-infinite 2s infinite;
+    }
+
+  }
+  >div{
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    img{
+      width: 22px;
+      height: 22px;
+      margin-bottom: 4px;
+    }
+    span{
+      width: 100%;
+      text-align: center;
+      @include useTheme {
+        color: getVar('dpNormal');
+      }
+      font-size: 11px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+    }
+  }
+}

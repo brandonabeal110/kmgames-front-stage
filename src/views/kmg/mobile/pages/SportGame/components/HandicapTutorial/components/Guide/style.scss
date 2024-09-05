@@ -1,0 +1,24 @@
+@import '~@style/mixins/index.scss';
+:local(.wrapper){
+    font-family: "PingFang SC";
+    text-align: center;
+    height: 100%;
+    overflow-y: scroll;
+    &::-webkit-scrollbar {
+        display: none;
+    } 
+
+    .statement {
+        width: 224px;
+        height: 44px;
+        margin: auto;
+        margin-bottom: 12px;
+        text-align: center;
+        font-family: "PingFang SC";
+        font-size: 13px;
+        line-height: 22px;
+        @include useTheme {
+            color: getVar('dpNormal');
+        }
+    }
+}

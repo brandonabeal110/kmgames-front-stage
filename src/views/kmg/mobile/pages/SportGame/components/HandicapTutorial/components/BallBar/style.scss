@@ -1,0 +1,37 @@
+@import '~@style/mixins/index.scss';
+:local(.wrapper) {
+    height: 54px;
+    padding: 0 14px;
+
+    .swiper-slide {
+        width: auto;
+        display: flex;
+
+        .type {
+            width: 72px;
+            height: 26px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 8px 17px 8px 0;
+            border-radius: 4px;
+            @include useTheme {
+                border: .5px solid getVar('dpBallBorder');
+                color: getVar('dpNormal');
+                background-color: getVar('dpBallBg');
+            }
+        }
+        
+        .active {
+            @include useTheme {
+                border: .5px solid #3586FF;
+                color: #3586FF;
+                background-color: rgba(53, 134, 255, 0.10);
+            }
+        }
+
+        .mr-none {
+            margin-right: 0;
+        }
+    }
+}

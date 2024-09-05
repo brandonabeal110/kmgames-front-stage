@@ -1,0 +1,179 @@
+@import '~@style/mixins/index.scss';
+
+:local(.wrapper){
+  position: relative;
+  padding-bottom: 30px;
+  >.play-type-wrapper{
+    display: flex;
+    height: 32px;
+    padding: 8px 10px 8px 10px;
+    justify-content: space-between;
+    align-items: center;
+    @include useTheme {
+      // border-top: 0.5px solid getVar('dpDivide');
+      background: getVar('dpPlayTypeBg');
+      color: getVar('dpStrong');
+      background-color: getVar('dpTopBackground');
+    }
+    box-sizing: border-box;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    &.is-closed {
+      img.arrow {
+        transform: rotate(-180deg);
+      }
+      >div.name {
+        >div:first-child {
+          transform: rotate(-90deg);
+        }
+      }
+    }
+    >img.arrow{
+      width: 12px;
+      height: 12px;
+      transition: .2s ease;
+    }
+    >div.name{
+      display: flex;
+      align-items: center;
+      >div:first-child {
+        margin-right: 6px;
+        transition: .2s;
+      }
+      >div:not(:first-child){
+        width: 14px;
+        height: 14px;
+        margin-right: 5px;
+      }
+      span.count{
+        @include useTheme {
+          color: getVar('dpAncillary');
+        }
+        font-size: 10px;
+        font-weight: 400;
+      }
+    }
+    img{
+      margin-right: 2px;
+    }
+  }
+  .series-icon {
+    position: fixed;
+    right: 10px;
+    bottom: 130px;
+    z-index: 2;
+    em{
+      position: absolute;
+      text-align: center;
+      line-height: 16px;
+      font-size: 13px;
+      top: -5px;
+      right: 0;
+      width: 16px;
+      height: 16px;
+      border-radius: 16px;
+      background: #ED4949;
+      stroke-width: 0.68px;
+      stroke: #FFF;
+      color: #fff;
+      border: 2px solid #fff;
+    }
+  }
+}
+
+:local(.leagueItem){
+  margin: auto;
+  // margin-top: 5px;
+  // margin-bottom: 5px;
+  // border-radius: 6px;
+  @include useTheme {
+    // border: 0.5px solid getVar('dpDivide');
+    // background: getVar('dpCard');
+    background: getVar('dpTopBackground');
+  }
+  .league-wrapper{
+    display: flex;
+    align-items: center;
+    height: 28px;
+    box-sizing: border-box;
+    padding-right: 12px;
+    border-radius: 6px 6px 0px 0px;
+    @include useTheme {
+      border-bottom: 0.5px solid getVar('dpDivide');
+    }
+    &.is-closed {
+      .match-box {
+        display: none;
+      }
+      .league-info {
+        .league-name {
+          width: auto;
+        }
+      }
+    }
+    >.league-info{
+      display: flex;
+      padding: 0 10px;
+      position: relative;
+
+      // &::before{
+      //   content: "";
+      //   width: 2px;
+      //   height: 14px;
+      //   position: absolute;
+      //   left: 0;
+      //   background-repeat: no-repeat;
+      //   background-size: contain;
+      //   background-position: center center;
+      //   background-image: url('~@this/assets/images/common/title-line.png');
+      // }
+      img{
+        width: 14px;
+        height: 14px;
+      }
+      span.league-name{
+        width: 96px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        @include useTheme {
+          color: getVar('dpStrong');
+        }
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 500;
+      }
+    }
+  }
+  .match-items-wrapper{
+    .match-placeholder{
+      height: 120px;
+    }
+    .match-beginner-placeholder{
+      height: 82px;
+    }
+  }
+  .match-box{
+    width: 230px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .match-title{
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+    @include useTheme {
+      color: getVar('dpStrong');
+    }
+    .name-list {
+      display: flex;
+      .label {
+        font-size: 12px;
+        font-weight: 500;
+        flex: 1;
+        text-align: center;
+      }
+    }
+  }
+}

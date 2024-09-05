@@ -1,0 +1,48 @@
+@import '~@style/mixins/index.scss';
+:local(.wrapper) {
+    height: 100%;
+    font-family: "PingFang SC"; 
+    overflow-y: scroll;
+    &::-webkit-scrollbar {
+        display: none;
+    } 
+    .strategy {
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        gap: 24px;
+        margin-bottom: 24px;
+
+        .title {
+            position: relative;
+            width: 363px;
+            height: 28px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 500;
+            margin: auto;
+
+            &::before {
+                position: absolute;
+                top: 50%;
+                left: 0;
+                width: 2px;
+                height: 10px;
+                content: '';
+                border-radius: 2px;
+                background-color: #3586FF;
+                transform: translateY(-50%);
+            }
+
+            @include useTheme {
+                color: getVar('dpBasicBlack');
+                border: 0 solid getVar('dpDivide');
+                border-width: .5px 0;
+            }
+        }
+    }
+}

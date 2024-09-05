@@ -1,0 +1,260 @@
+@import '~@style/mixins/index.scss';
+
+:local(.wrapper) {
+  padding: 12px 10px;
+  box-sizing: border-box;
+  font-size: 12px;
+  @include useTheme {
+    border-bottom: 0.5px solid getVar('dpDivide');
+  }
+  position: relative;
+  .match-noob-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 15px;
+    line-height: 15px;
+    margin-bottom: 10px;
+    position: relative;
+    @include useTheme {
+      color: getVar('dpNormal');
+    }
+    font-weight: 500;
+    .status-text {
+      font-size: 11px;
+    }
+    .match-status {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      min-width: auto;
+      font-size: 11px;
+      &.is-live {
+        @include useTheme {
+          color: getVar('dpStrong');
+          font-size: 12px;
+        }
+      }
+    }
+    > div {
+      min-width: 60px;
+      &:last-child {
+        text-align: right;
+      }
+    }
+    .media-box {
+      display: flex;
+      align-items: center;
+      > div {
+        margin-right: 6px;
+      }
+      &:nth-child(3) {
+        justify-content: flex-end;
+        > div {
+          margin-right: 0;
+          margin-left: 2px;
+        }
+      }
+    }
+  }
+  .match-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 44px;
+    .score {
+      width: 114px;
+      box-sizing: border-box;
+      padding: 0 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      p {
+        text-align: center;
+        margin: 0 10px;
+      }
+      span {
+        flex: 1;
+        text-align: right;
+        &:last-child {
+          text-align: left;
+        }
+      }
+    }
+    .team {
+      display: flex;
+      align-items: center;
+      &:first-child {
+        .team-name {
+          text-align: right;
+          margin-right: 5px;
+          justify-content: flex-end;
+        }
+        .red-card {
+          margin-right: 3px;
+        }
+      }
+      &:last-child {
+        .team-name {
+          margin-left: 5px;
+        }
+        .red-card {
+          margin-left: 3px;
+        }
+      }
+      .team-name {
+        width: 102px;
+        display: flex;
+        align-items: center;
+        font-weight: 500;
+      }
+      .team-name span:not(.red-card) {
+        max-width: 88px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .red-card {
+        font-weight: normal;
+        width: 11px;
+        height: 14px;
+        font-size: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 2px;
+        background: #E94343;
+        color: #fff;
+      }
+    }
+    .ant-image .ant-image-placeholder {
+      > div {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+  }
+  .match-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .collect-box {
+      width: 31px;
+      padding-left: 3px;
+      box-sizing: border-box;
+      display: flex;
+      justify-content: flex-start;
+    }
+  }
+  .odds {
+    display: flex;
+    &.is-esports {
+      .name {
+        display: none;
+      }
+    }
+    > div {
+      flex: 1;
+      height: 32px;
+      margin-right: 4px;
+      box-sizing: border-box;
+      @include useTheme {
+        background: getVar('dpForm1');
+        border: 0.5px solid getVar('footerBorderColor');
+      }
+      box-shadow: none;
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+    .odd-item {
+      box-shadow: none;
+      flex: 1;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      box-sizing: border-box;
+      flex-wrap: nowrap;
+      white-space: nowrap;
+      height: 32px;
+      flex-shrink: 0;
+      margin-right: 4px;
+      font-size: 11px;
+      padding: 0 8px;
+      .name {
+        display: flex;
+        align-items: center;
+      }
+      .name-text {
+        width: 66px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        text-align: right;
+        margin: 0 4px;
+      }
+      &.is-draw {
+        padding: 0 6px;
+        .name-text {
+          width: auto;
+          margin-left: 0;
+        }
+      }
+      &:not(.is-home) {
+        flex-direction: row;
+        .name {
+          flex-direction: row;
+          .name-text {
+            text-align: left;
+          }
+        }
+      }
+      &:not(.is-home):not(.is-draw) {
+        .name {
+          flex-direction: row-reverse;
+        }
+      }
+      &:last-child {
+        margin-right: 0;
+      }
+      > span:not(.name) {
+        margin-top: 0;
+        font-size: 11px;
+      }
+      span.up,
+      span.down {
+        &:after {
+          left: auto;
+          transform: translate(calc(100% + 2px), -50%);
+        }
+      }
+      &:not(:first-child) {
+        .up,
+        .down {
+          &:after {
+            right: 0;
+          }
+        }
+      }
+      &:first-child {
+        .up,
+        .down {
+          &:after {
+            left: 0;
+            transform: translate(calc(-100% - 2px), -50%);
+          }
+        }
+      }
+    }
+  }
+  .total-count {
+    position: absolute;
+    bottom: 2px;
+    right: 10px;
+    font-size: 8px;
+    @include useTheme {
+      color: getVar('dpNormal');
+    }
+  }
+}
